@@ -1,0 +1,13 @@
+.main {
+	padding: 60px 0 0;
+}
+.card {
+	margin-top: 10px;
+}
+.postForm {
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 1px solid rgba(0, 0, 255, .5);
+	/*border-color: blue;*/
+}

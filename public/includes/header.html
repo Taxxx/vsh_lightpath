@@ -1,0 +1,59 @@
+<header class="header bgc-cyan-600">
+    <div class="menubar">
+        <button class="btn btn--m btn--icon btn--white" lx-ripple="white" ng-click="Sidebar.toggleSidebar()">
+            <i class="mdi mdi-menu"></i>
+        </button>
+    </div>
+
+    <h1 class="main-logo">
+        <a href="#/" class="main-logo__link" lx-ripple="white">
+            <!--<img src="/images/logo.jpg">-->
+            <img src="">
+        </a>
+    </h1>
+
+
+    <!--nav class="main-nav main-nav--lap-and-up">
+		<ul>
+			<li><a href="#/" class="main-nav__link" lx-ripple="white">Inicio</a></li>
+			<li><a href="#/posts/new" class="main-nav__link" lx-ripple="white">Crear Post</a></li>
+			<li><button lx-ripple="white" class="main-nav__link btn btn--m btn--black btn--flat" ng-click="opendDialog('test')" lx-ripple>Log in</button></li>
+
+
+		</ul>
+		
+	</nav-->
+
+    <nav class="main-nav main-nav--lap-and-up">
+        <ul>
+            <!--li><a href="#/" class="main-nav__link" lx-ripple="white">Home</a></li-->
+            <!--<li ng-hide="!islogged"><a href="#/users" class="main-nav__link" lx-ripple="white">&lt;!&ndash;i class="mdi mdi-plus-circle"></i&ndash;&gt;Users</a></li>-->
+			<!--li ng-hide="!islogged"><a href="#/pets/new" class="main-nav__link" lx-ripple="white"><i class="mdi mdi-plus-circle"></i>Pet</a></li-->
+            <li><a href="#/rd" lx-ripple="white" class="main-nav__link"  lx-ripple>Recuperación de Datos</a></li>
+            <li><a href="#/qr" lx-ripple="white" class="main-nav__link"  lx-ripple>QR</a></li>
+            <li><a href="#/" lx-ripple="white" class="main-nav__link"  lx-ripple>Sensores</a></li>
+            <li><a href="#/bd" lx-ripple="white" class="main-nav__link"  lx-ripple>Base de Datos</a></li>
+			<li><a href="" lx-ripple="white" class="main-nav__link" ng-click="opendDialog('test')" lx-ripple>Login</a></li>
+        </ul>
+    </nav>
+
+    <nav class="main-nav main-nav--palm">
+        <lx-dropdown position="right" from-top>
+            <button class="btn btn--m btn--white btn--icon" lx-ripple="white" lx-dropdown-toggle>
+                <i class="mdi mdi-dots-vertical"></i>
+            </button>
+
+            <lx-dropdown-menu>
+                <ul>
+                    <!--li><a href="#/" class="dropdown-link" lx-ripple="white">Home</a></li-->
+                    <!--li><a href="#/pets/new" class="dropdown-link" lx-ripple="white"><i class="mdi mdi-plus-circle"></i>User</a></li-->
+        			<li><a href="" lx-ripple="white" class="dropdown-link" ng-click="opendDialog('test')" lx-ripple>Login</a></li>
+                    <li><a href="#/bd" class="dropdown-link" lx-ripple="white">Base de Datos</a></li>
+                    <li><a href="#/" class="dropdown-link" lx-ripple="white">Sensores</a></li>
+                    <li><a href="#/qr" class="dropdown-link" lx-ripple="white">QR</a></li>
+                    <li><a href="#/rd" class="dropdown-link" lx-ripple="white">Recuperación de Datos</a></li>
+                </ul>
+            </lx-dropdown-menu>
+        </lx-dropdown>
+    </nav>
+</header>

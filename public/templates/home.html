@@ -1,0 +1,37 @@
+<div flex-item="10">
+
+	<!--div ng-app="myapp"-->
+	<div>
+	    <!--input ng-model="highchartsNG.title.text"-->
+		<form>
+			<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+			<div flex-item>
+		        <lx-text-field label="data [a,b,c,d]">
+		            <input type="text" ng-model="formData.text">
+		        </lx-text-field>
+		    </div>
+
+			
+			<!-- createToDo() WILL CREATE NEW TODOS -->
+
+			<button type="submit" ng-click="DataPrueba()" class="btn btn--m btn--green btn--raised">DatosPrueba</button>
+		</form>
+
+		
+	    <button ng-click="addSeries()" class="btn btn--m btn--blue btn--flat" lx-ripple>Add Series</button>
+	    <!--button ng-click="addPoints1()">Add Point A</button-->
+	    <button ng-click="removeRandomSeries()" class="btn btn--m btn--blue btn--flat" lx-ripple>Remove Random Series</button>
+	    <button ng-click="swapChartType()" class="btn btn--m btn--blue btn--flat" lx-ripple>Line/Bar</button>
+	    <highchart id="chart1" config="chart1"></highchart>
+	    <!--button ng-click="addPoints2()">Add Point B</button-->
+	    <highchart id="chart2" config="chart2"></highchart>
+	    <!--button ng-click="addPoints3()">Add Point C</button-->
+	    <highchart id="chart3" config="chart3"></highchart>
+	    <!--button ng-click="addPoints4()">Add Point D</button-->
+	    <highchart id="chart4" config="chart4"></highchart>
+	</div>
+	<!--/div-->
+	<!--h3><a href="https://github.com/pablojim/highcharts-ng">See Highcharts-ng on github</a></h3-->	
+
+
+</div>
