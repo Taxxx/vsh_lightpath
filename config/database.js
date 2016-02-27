@@ -1,4 +1,4 @@
 module.exports = {
 	// the database url to connect
-	url : 'mongodb://localhost/'+'iotforest'
+	url : 'mongodb://localhost/'+'vsh_lightpath'
 }
