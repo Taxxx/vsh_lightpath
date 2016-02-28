@@ -4,9 +4,6 @@
     <list default="true" id="fc3e04eb-67be-410c-82f1-d1ea729c5a2e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/home.js" afterPath="$PROJECT_DIR$/app/controller/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/sensor_controller.js" afterPath="$PROJECT_DIR$/app/controller/sensor_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/sensor_data_controller.js" afterPath="$PROJECT_DIR$/app/controller/sensor_data_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/sensor_controller.js" afterPath="$PROJECT_DIR$/public/js/controllers/sensor_controller.js" />
     </list>
     <ignored path="vsh_lightpath.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -836,7 +833,7 @@
       <option name="number" value="Default" />
       <updated>1456593889333</updated>
       <workItem from="1456593891426" duration="8856000" />
-      <workItem from="1456613765636" duration="16414000" />
+      <workItem from="1456613765636" duration="16449000" />
     </task>
     <task id="LOCAL-00001" summary="Settings Controllers">
       <created>1456596650714</created>
@@ -850,11 +847,17 @@
       <option name="project" value="LOCAL" />
       <updated>1456629062844</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finished structure sockect">
+      <created>1456634485803</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1456634485803</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25270000" />
+    <option name="totallyTimeSpent" value="25305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="24" width="1920" height="1056" extended-state="6" />
@@ -891,7 +894,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Settings Controllers" />
     <MESSAGE value="Fix save data bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix save data bug" />
+    <MESSAGE value="Finished structure sockect" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished structure sockect" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
