@@ -1,5 +1,5 @@
 angular.module("FinalApp")
-    .controller("SensorController", function($scope,Socket,Sensors){
+    .controller("SensorController", function($scope,Socket,Sensors,Riot){
 
         $scope.formData = {};
         $scope.loading = true;
@@ -10,6 +10,14 @@ angular.module("FinalApp")
             $scope.sensor.stemp = parseFloat(data.dato1);
             $scope.chart2.series[0].data.push(parseFloat(data.dato2));
             $scope.sensor.sheartrate = parseFloat(data.dato2);
+
+            Riot.addData($scope.sensor.stemp, $scope.sensor.sheartrate)
+                .success(function (data) {
+                    console.log('Exito!!!');
+                })
+                .error(function (err) {
+                    console.log('Error!!! '+err);
+                });
 
             /*$scope.chart3.series[0].data.push(parseFloat(data.dato3));
             $scope.sensor.sconduct = parseFloat(data.dato3);
@@ -42,10 +50,17 @@ angular.module("FinalApp")
                         //$location.path("/");
                         console.log("save data prueba success : "+data);
                     })
-
-                    .error(function(error){
+                    .error(function(err){
 
                     })
+
+                Riot.addData($scope.sensor.stemp, $scope.sensor.sheartrate)
+                    .success(function (data) {
+                        console.log('Exito!!!');
+                    })
+                    .error(function (err) {
+                        console.log('Error!!! '+err);
+                    });
             }
         };
 

@@ -70,55 +70,54 @@ angular.module("FinalApp")
 
                 //return $http.post('http://vizix.hackiot.com:8080/riot-core-services/api/user/login',{username:"arduino",password:"bth101"});
             },
-            addData : function(api_key,location,timestamp,locationXYZ,temperature,steps,heart,food) {
+            addData : function(temperature, heart) {
                 //debugger;
-                var params_data = {
+                /*var params_data = {
                     "group": ">hackathon>arduino5",
                     "name": "Pet",
                     "serialNumber": "c1",
                     "thingTypeCode": "gps",
                     "udfs": {
-                        "location": {
-                            //"value": "-68.084831;-16.541728;0.0"
-                            "value": location
-                        },
-                        "timestamp": {
-                            //"value": "346543"
-                            "value": timestamp
-                        },
-                        "locationXYZ": {
-                            //"value": "6"
-                            "value": locationXYZ
-                        },
                         "temperature": {
                             //"value": "71"
                             "value": temperature
                         },
-                        "steps": 		{
-                            //"value": "71"
-                            "value": steps
-                        },
                         "heart": 		{
                             //"value": "71"
                             "value": heart
-                        },
-                        "food": 		{
-                            //"value": "71"
-                            "value": food
                         }
                     }
-                };
+                };*/
+
+                var params_data = [
+
+                    {
+                        "fieldValues":{"frequency.value":heart, "temperature.value":temperature},
+                        "whereThing":"serialNumber=S00001",
+                        "returnThings":true
+                    }
+                    /*,
+                    {
+                        "fieldValues":{"frequency.value":"65", "temperature.value":"65"},
+                        "whereThing":"serialNumber=S0002",
+                        "returnThings":true
+                    }*/
+                ];
 
 
                 var http = $http({
-                    method: 'PATCH',
-                    url: '//vizix.hackiot.com:8080/riot-core-services/api/thing/89',
+                    method: 'POST',
+                    //url: '//vizix.hackiot.com:8080/riot-core-services/api/thing/89',
+                    url: 'http://hackiot.com:8080/riot-core-services/api/things/',
                     headers: {
-                        Api_key: 'root'
+                        'Api_key': 'root',
+                        'Content-Type': 'application/json',
+                        'Authorization' : 'application/json'
                         //Api_key: api_key
                     },
+                    data: params_data
+                });
 
-                    data: params_data });
                 return http;
 
                 //return $http.post('http://vizix.hackiot.com:8080/riot-core-services/api/user/login',{username:"arduino",password:"bth101"});

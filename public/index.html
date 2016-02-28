@@ -51,7 +51,7 @@
 
 		<lx-dialog class="dialog dialog--l" id="test" auto-close="true" onclose="closingDialog()">
 		    <div class="dialog__header">
-		        <div class="toolbar bgc-light-green-500 pl++">
+		        <div class="toolbar bgc-cyan-600 pl++">
 		            <span class="toolbar__label tc-white fs-title">
 		                LogIn
 		            </span>
@@ -68,7 +68,9 @@
 		    </div>
 	    
 		    <div class="dialog__content">
-		        
+				<lx-text-field lx-label="Phone number" lx-fixed-label="true" lx-icon="phone">
+					<input type="text" ng-model="vm.textFields.fixed.emptyPhone">
+				</lx-text-field>
 	    	   
 	        </div>
 

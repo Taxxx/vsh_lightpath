@@ -54,6 +54,7 @@ module.exports = function(app) {
 				console.log('ERROR: ' + err);
 			}
 		});
+
         res.send(sensor);
 	};
 
