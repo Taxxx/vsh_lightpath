@@ -1,7 +1,6 @@
-//File: routes/sensors.js
 module.exports = function(app) {
 
-	var Sensor
+	var Sensor;
 	var findAllSensors;
 	var findById;
 	var addSensor;
@@ -22,44 +21,46 @@ module.exports = function(app) {
 		});
 	};
 
-	  //GET - Return a User with specified ID
-	  findById = function(req, res) {
+	//GET - Return a User with specified ID
+	findById = function(req, res) {
 		Sensor.findById(req.params.id, function(err, sensor) {
 			if(!err) {
-			console.log('GET /sensor/' + req.params.id);
+				console.log('GET /sensor/' + req.params.id);
 				res.send(sensor);
 			} else {
 				console.log('ERROR: ' + err);
 			}
 		});
-	  };
+	};
 
-	  //POST - Insert a new Sensor in the DB
-	  addSensor = function(req, res) {
-		  console.log('POST');
-		  console.log('The body is:  ');
-		  console.log(req.body);
+	//POST - Insert a new Sensor in the DB
+	addSensor = function(req, res) {
 
 		var sensor = new Sensor({
 			stemp:    req.body.stemp,
 		  	sph:      req.body.sph,
-		  	sconduc: 	req.body.sconduct,
+		  	sconduc:  req.body.sconduct,
 			sdureza:  req.body.sdureza
-		});
+	  	});
 
 		sensor.save(function(err) {
 			if(!err) {
+				app.io.broadcast('data_arduino', {
+					dato1: req.body.stemp,
+					dato2: req.body.sph,
+					dato3: req.body.sconduct,
+					dato4: req.body.sdureza
+				});
 				console.log('Created');
 			} else {
 				console.log('ERROR: ' + err);
 			}
 		});
+        res.send(sensor);
+	};
 
-		res.send(sensor);
-	  };
-
-	  //PUT - Update a register already exists
-	  updateSensor = function(req, res) {
+	//PUT - Update a register already exists
+	updateSensor = function(req, res) {
 		Sensor.findById(req.params.id, function(err, sensor) {
 			sensor.stemp = req.body.stemp;
 			sensor.sph = req.body.sph;
@@ -75,10 +76,10 @@ module.exports = function(app) {
 				res.send(sensor);
 			});
 		});
-	  }
+	}
 
-	  //DELETE - Delete a Sensor with specified ID
-	  deleteSensor = function(req, res) {
+	//DELETE - Delete a Sensor with specified ID
+	deleteSensor = function(req, res) {
 		Sensor.findById(req.params.id, function(err, sensor) {
 			sensor.remove(function(err) {
 				if(!err) {
@@ -88,13 +89,12 @@ module.exports = function(app) {
 				}
 			})
 		});
-	  }
+	}
 
-	  //Link routes and functions
-	  app.get('/sensors', findAllSensors);
-	  app.get('/sensor/:id', findById);
-	  app.post('/sensor', addSensor);
-	  app.put('/sensor/:id', updateSensor);
-	  app.delete('/sensor/:id', deleteSensor);
-
+	//Link routes and functions
+	app.get('/sensors', findAllSensors);
+	app.get('/sensor/:id', findById);
+	app.post('/sensor', addSensor);
+	app.put('/sensor/:id', updateSensor);
+	app.delete('/sensor/:id', deleteSensor);
 }

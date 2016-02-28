@@ -4,16 +4,7 @@ angular.module("FinalApp")
         $scope.formData = {};
         $scope.loading = true;
         $scope.sensor = {};
-        //window.io = io.connect();
-        //io.on('data_arduino', function(data){
 
-        // $scope.chart1.series[0].data.push(data.dato1);
-        // $scope.chart2.series[0].data.push(data.dato2);
-        //$scope.chart3.series[0].data.push(dato.dato3);
-        // $scope.chart4.series[0].data.push(dato.dato4);
-
-
-        //});
         Socket.on('data_arduino', function (data) {
             $scope.chart1.series[0].data.push(parseFloat(data.dato1));
             $scope.sensor.stemp = parseFloat(data.dato1);
@@ -23,36 +14,7 @@ angular.module("FinalApp")
             $scope.sensor.sconduct = parseFloat(data.dato3);
             $scope.chart4.series[0].data.push(parseFloat(data.dato4));
             $scope.sensor.sdureza = parseFloat(data.dato4);
-            /*UmaEye.save({data: {stemp:1,sph:2,sconduc:3,sdureza:4}},function(data){
-             console.log(data);
-
-             });*/
-            //$scope.uma = UmaEye.query();
-
-            //Sensors.create($scope.pet)
-            Sensors.create($scope.sensor)
-
-                // if successful creation, call our get function to get all the new todos
-                .success(function(data) {
-                    //$scope.loading = false;
-                    //$scope.formData = {}; // clear the form so our user is ready to enter another
-                    //$scope.todos = data; // assign our new list of todos
-                    //$location.path("/");
-                    console.log("save data socket success : "+data);
-                })
-
-                .error(function(error){
-
-                })
-
         });
-
-        /*$scope.saveData = function(){
-         UmaEye.save({data: $scope.post},function(data){
-         console.log(data);
-         $location.path("/");
-         });
-         }*/
 
         $scope.DataPrueba = function() {
 
@@ -78,6 +40,8 @@ angular.module("FinalApp")
                         //$scope.todos = data; // assign our new list of todos
                         //$location.path("/");
                         console.log("save data prueba success : "+data);
+
+
                     })
 
                     .error(function(error){
