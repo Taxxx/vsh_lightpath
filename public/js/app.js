@@ -2,7 +2,7 @@ angular.module("FinalApp",["lumx","ngRoute","ngResource","ngTouch","highcharts-n
 .config(function($routeProvider){
 	$routeProvider
 		.when("/", {
-			controller: "myctrl",
+			controller: "SensorController",
 			templateUrl: "templates/home.html"
 		})
 		.when("/bd", {

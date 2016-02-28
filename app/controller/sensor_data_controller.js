@@ -11,9 +11,11 @@ module.exports = function(app) {
 
   	//GET - Return all sensors in the DB
 	findAllSensors = function(req, res) {
+		//debugger;
 		Sensor.find(function(err, sensors) {
 			if(!err) {
-			console.log('GET /sensors')
+				console.log('GET /sensors');
+				//console.log(sensors);
 				res.send(sensors);
 			} else {
 				console.log('ERROR: ' + err);
@@ -38,18 +40,14 @@ module.exports = function(app) {
 
 		var sensor = new Sensor({
 			stemp:    req.body.stemp,
-		  	sph:      req.body.sph,
-		  	sconduc:  req.body.sconduct,
-			sdureza:  req.body.sdureza
+			sheartrate:      req.body.sheartrate
 	  	});
 
 		sensor.save(function(err) {
 			if(!err) {
 				app.io.broadcast('data_arduino', {
 					dato1: req.body.stemp,
-					dato2: req.body.sph,
-					dato3: req.body.sconduct,
-					dato4: req.body.sdureza
+					dato2: req.body.sheartrate
 				});
 				console.log('Created');
 			} else {
@@ -63,9 +61,8 @@ module.exports = function(app) {
 	updateSensor = function(req, res) {
 		Sensor.findById(req.params.id, function(err, sensor) {
 			sensor.stemp = req.body.stemp;
-			sensor.sph = req.body.sph;
-			sensor.sconduc = req.body.sconduct;
-			sensor.sdureza = req.body.sdureza;
+			sensor.sheartrate = req.body.sheartrate;
+
 
 			sensor.save(function(err) {
 				if(!err) {
@@ -76,7 +73,7 @@ module.exports = function(app) {
 				res.send(sensor);
 			});
 		});
-	}
+	};
 
 	//DELETE - Delete a Sensor with specified ID
 	deleteSensor = function(req, res) {
@@ -89,7 +86,7 @@ module.exports = function(app) {
 				}
 			})
 		});
-	}
+	};
 
 	//Link routes and functions
 	app.get('/sensors', findAllSensors);
@@ -97,4 +94,4 @@ module.exports = function(app) {
 	app.post('/sensor', addSensor);
 	app.put('/sensor/:id', updateSensor);
 	app.delete('/sensor/:id', deleteSensor);
-}
+};
