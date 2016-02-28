@@ -28,11 +28,9 @@ var sensorController = require('./app/controller/sensor_controller.js');
 var sensorDataController = require('./app/controller/sensor_data_controller.js');
 var appMainController = require('./app/controller/home.js');
 
-
+appMainController(app);
 sensorController(app,arduino_server);
 sensorDataController(app);
-
-appMainController(app);
 
 //Socket_Arduino
 arduino_server.on("listening", function() {

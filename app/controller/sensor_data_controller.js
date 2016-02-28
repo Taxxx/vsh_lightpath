@@ -1,5 +1,6 @@
 //File: routes/sensors.js
 module.exports = function(app) {
+
 	var Sensor
 	var findAllSensors;
 	var findById;
@@ -9,8 +10,8 @@ module.exports = function(app) {
 
 	Sensor = require('../models/sensor.js');
 
-	  //GET - Return all sensors in the DB
-	  findAllSensors = function(req, res) {
+  	//GET - Return all sensors in the DB
+	findAllSensors = function(req, res) {
 		Sensor.find(function(err, sensors) {
 			if(!err) {
 			console.log('GET /sensors')
@@ -19,7 +20,7 @@ module.exports = function(app) {
 				console.log('ERROR: ' + err);
 			}
 		});
-	  };
+	};
 
 	  //GET - Return a User with specified ID
 	  findById = function(req, res) {
@@ -35,13 +36,14 @@ module.exports = function(app) {
 
 	  //POST - Insert a new Sensor in the DB
 	  addSensor = function(req, res) {
-		console.log('POST');
-		console.log(req.body);
+		  console.log('POST');
+		  console.log('The body is:  ');
+		  console.log(req.body);
 
 		var sensor = new Sensor({
 			stemp:    req.body.stemp,
 		  	sph:      req.body.sph,
-		  	sconduc: 	req.body.sconduc,
+		  	sconduc: 	req.body.sconduct,
 			sdureza:  req.body.sdureza
 		});
 
@@ -61,7 +63,7 @@ module.exports = function(app) {
 		Sensor.findById(req.params.id, function(err, sensor) {
 			sensor.stemp = req.body.stemp;
 			sensor.sph = req.body.sph;
-			sensor.sconduc = req.body.sconduc;
+			sensor.sconduc = req.body.sconduct;
 			sensor.sdureza = req.body.sdureza;
 
 			sensor.save(function(err) {
